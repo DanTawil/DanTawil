@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> TUMO Lebanon</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </head>
+    <style>
+    #first{
+        color: Red;
+        background-color: White;
+        font-size: 100px;
+        text-decoration: underline;
+        text-align: center
+    }
+    img{
+        width: 600px; 
+    }    
+    .Dan{
+        color :rgb(0, 255, 76)
+    }
+    div{
+        text-align: center;
+    }
+    .btn-lg{
+        Background-color: Black
+    }
+    .dropdown{
+      text-align: center;
+    }
+    #content{
+      text-align: left;
+    }
+    .form-group{
+    width; 500PX
+    }
+    #spinner-border{
+      text-align: left
+    }
+    .addBtn{
+      width: 250px;
+    height: 250px 
+    }
+    </style>
+    <body>
+        <h1 id = "first">TUMO</h1>
+        <h1 id ="Second">Join Tumo NOW</h1>
+        <h1 id = "My Heading"> Tumo is amazing</h1>
+        <p class = "Dan">My name is Dany</p>
+        <br>
+        <p class = "Dany">And I hope you'll like TUMO</p>
+        <br>
+        <p class = "Hello">I hope you join it</p>
+        <br>
+        <a href = "https://tumobeirut.com/en/">Click here for more info</a>
+
+            <h1>Favorite Class</h1>
+            
+        <input placeholder = "other classes" type = text id = "friend">
+        <button id = "addBtn">Submit</button>
+        <br>
+
+        
+      
+                <div id = "content"></div>
+
+        <br>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Fav classes ?
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Coding</a>
+            <a class="dropdown-item" href="#">Game developpement</a>
+            <a class="dropdown-item" href="#">Film making</a>
+            <a class="dropdown-item" href="#">Music Production</a>
+          </div>
+        </div>
+        <div><img src = "Tumo1.jpeg"></div>
+        <br>
+        <div><img src = "Tumo2.jpeg"></div>
+        <a href="https://tumo.org/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Info</a>
+        <form>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <label class="form-check-label" for="exampleCheck1">Remember me</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <br>
+                
+        
+                
+              </form>
+              
+              <script>
+                document.getElementById('content').innerHTML = localStorage.getItem('listItems')
+
+              document.getElementById('addBtn').addEventListener('click', function(){
+                
+              })
+
+              document.getElementById('friend').addEventListener("keyup", function(event) {
+  // Number 13 is the "Enter" key on the keyboard
+  if (event.keyCode === 13) {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    var a = document.createElement('li')
+                a.innerHTML = document.getElementById('friend').value
+
+                var b = document.createElement('button');
+             b.addEventListener('click', removeItem)
+              b.innerHTML = "X"
+              a.append(b)
+
+                document.getElementById('content').append(a)
+                localStorage.setItem('listItems', document.getElementById('content').innerHTML)
+  }
+  })
+  function removeItem(){
+                this.parentNode.remove()
+                localStorage.setItem('listItems', document.getElementById('content').innerHTML)
+}
+              </script>
+    </body>
+</html>
